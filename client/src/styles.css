@@ -1,0 +1,88 @@
+/* ===== Couleurs et réglages communs ===== */
+:root { --navy:#0b2d63; --green:#1f8a4c; --yellow:#f5c518; --muted:#5d6778; --line:#d9dfe9; --input:#f4f4f5; } /* palette EXOS */
+* { box-sizing: border-box; } /* la largeur inclut les marges intérieures */
+body { margin:0; background:#eef1f5; color:#1b2433; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; } /* fond et police du site */
+.app { max-width:430px; margin:0 auto; min-height:100vh; background:#fff; padding:20px 20px 40px; } /* colonne « téléphone » centrée */
+
+/* ===== Textes ===== */
+h1 { color:var(--navy); font-size:30px; line-height:1.1; margin:18px 0 6px; letter-spacing:-.5px; } /* grands titres */
+h2 { color:var(--navy); font-size:19px; margin:22px 0 8px; } /* titres de sections */
+.sub { color:#1b6b3a; font-weight:600; margin:0 0 16px; } /* sous-titre vert */
+.muted { color:var(--muted); } /* texte discret */
+.small { font-size:12px; } /* petit texte */
+.center { text-align:center; } /* texte centré */
+a { color:var(--navy); font-weight:600; cursor:pointer; } /* liens */
+.error { color:#c0392b; margin:8px 0; } /* messages d'erreur */
+.ok-msg { color:#1b6b3a; margin:8px 0; } /* messages de succès */
+
+/* ===== Formulaires ===== */
+label { display:block; margin:12px 0 4px; font-weight:500; } /* étiquettes des champs */
+input, select, textarea { width:100%; padding:14px 18px; border:1px solid var(--line); border-radius:24px; background:var(--input); font-size:16px; color:#1b2433; font-family:inherit; } /* champs arrondis */
+textarea { border-radius:18px; } /* zone de texte moins arrondie */
+.pw { position:relative; } /* conteneur du champ mot de passe */
+.pw button { position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:0; font-size:18px; cursor:pointer; } /* œil à droite du champ */
+.pw input { padding-right:48px; } /* laisse la place à l'œil */
+
+/* ===== Boutons ===== */
+.btn { display:block; width:100%; margin-top:16px; padding:14px; border:0; border-radius:30px; background:var(--navy); color:#fff; font-size:17px; font-weight:700; cursor:pointer; text-align:center; } /* bouton principal bleu */
+.btn.green { background:var(--green); } /* variante verte */
+.btn.light { background:#cfe6f3; color:var(--navy); } /* variante bleu clair */
+.btn.outline { background:#fff; color:var(--navy); border:1.5px solid var(--line); } /* variante contour */
+.btn:disabled { opacity:.6; } /* bouton désactivé pendant un envoi */
+.row { display:flex; gap:10px; align-items:center; } /* éléments côte à côte */
+.row > * { flex:1; } /* ils se partagent la largeur */
+.row.tight > * { flex:none; } /* variante sans étirement */
+
+/* ===== Cartes et listes ===== */
+.card { background:#fff; border-radius:16px; padding:12px; box-shadow:0 1px 8px #0002; margin-bottom:10px; } /* carte blanche ombrée */
+.item { display:flex; align-items:center; justify-content:space-between; gap:10px; } /* ligne d'une liste */
+.item > div:first-child { flex:1; min-width:0; word-break:break-word; } /* le texte prend la place restante */
+.scroll { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; } /* liste horizontale (professeurs) */
+.person { min-width:110px; text-align:center; font-size:12px; cursor:pointer; } /* carte d'une personne */
+.pill { font-size:12px; padding:5px 10px; border-radius:12px; border:0; background:#fbe9a6; color:#6b5200; font-weight:600; } /* étiquette jaune « en attente » */
+.pill.ok { background:#dff1e6; color:#1b6b3a; cursor:pointer; } /* étiquette verte cliquable */
+.pill.no { background:#f9d6d3; color:#a32d2d; } /* étiquette rouge */
+.filebtns { display:flex; gap:6px; } /* boutons Voir / Télécharger */
+.topbar { display:flex; justify-content:space-between; align-items:center; } /* ligne du haut (profil, quitter) */
+.topbar a { text-decoration:none; font-size:14px; color:var(--green); } /* liens du haut */
+.back { font-size:20px; text-decoration:none; color:var(--muted); } /* flèche de retour */
+.stat { font-size:30px; font-weight:800; color:var(--navy); } /* gros chiffres de l'admin */
+
+/* ===== Avatar et présence ===== */
+.avatar { position:relative; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#dfe6ef; color:var(--navy); font-weight:700; } /* rond de la photo */
+.avatar img { width:100%; height:100%; border-radius:50%; object-fit:cover; } /* la photo remplit le rond */
+.dot { position:absolute; right:0; bottom:0; width:12px; height:12px; border-radius:50%; background:#b7bdc8; border:2px solid #fff; } /* point gris : hors ligne */
+.dot.on { background:#2fb457; } /* point vert : en ligne */
+.live { color:#2fb457; font-weight:600; } /* texte « en ligne » vert */
+
+/* ===== Chat ===== */
+.msgs { min-height:55vh; } /* zone des messages */
+.msg { margin:12px 0; } /* un message */
+.msg small { display:block; color:var(--muted); font-size:12px; margin:2px 4px; } /* heure du message */
+.bubble { display:inline-block; max-width:80%; padding:10px 14px; border-radius:18px; background:#dcdde0; text-align:left; word-break:break-word; } /* bulle grise (autre personne) */
+.msg.me { text-align:right; } /* mes messages à droite */
+.msg.me .bubble { background:var(--green); color:#fff; } /* bulle verte (moi) */
+.composer { position:sticky; bottom:0; background:#fff; padding:8px 0; display:flex; gap:8px; } /* barre d'écriture fixée en bas */
+.composer .btn { width:auto; margin:0; padding:0 20px; font-size:15px; } /* bouton Envoyer */
+
+/* ===== Accueil ===== */
+.hero { width:84%; display:block; margin:6px auto 0; } /* logo EXOS */
+.students { width:100%; display:block; margin:8px 0 14px; } /* illustration des élèves */
+.bar { height:6px; margin:-20px -20px 14px; background:linear-gradient(90deg,#1f8a4c,#f5c518,#3b7fd0); } /* bande de couleurs en haut */
+
+/* ===== Barre du bas ===== */
+.withnav { padding-bottom: 80px; } /* laisse la place à la barre fixe */
+.nav { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:430px; display:flex; justify-content:space-around; background:#fff; border-top:1px solid var(--line); box-shadow:0 -2px 10px #0001; padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px)); } /* barre collée en bas, centrée */
+.nav button { background:none; border:0; font-size:12px; color:var(--muted); display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer; } /* un bouton de la barre */
+.nav button span { font-size:22px; } /* icône du bouton */
+
+/* ===== Écran de correction ===== */
+.preview { display:block; width:100%; min-height:60vh; border:1px solid var(--line); border-radius:12px; object-fit:contain; background:var(--input); } /* aperçu photo ou PDF */
+
+/* ===== Carte de connexion admin ===== */
+.admincard { box-shadow:0 2px 14px #0002; border-radius:18px; padding:0 20px 22px; margin-top:20px; overflow:hidden; } /* carte ombrée */
+.admincard h1, .admincard .sub { text-align:center; } /* titre centré */
+
+/* ===== Réclamation WhatsApp ===== */
+.wa-float { position:fixed; bottom:84px; right:max(14px, calc(50% - 215px + 14px)); width:52px; height:52px; border-radius:50%; background:#25d366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:26px; text-decoration:none; box-shadow:0 3px 10px #0004; z-index:50; } /* bulle verte WhatsApp en bas à droite, au-dessus de la barre */
+.wa-link { color:#128c7e; font-weight:600; font-size:14px; text-decoration:none; } /* lien texte vert WhatsApp */
